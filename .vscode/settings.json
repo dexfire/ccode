@@ -1,8 +1,8 @@
 
 {
     "files.defaultLanguage": "cpp", // ctrl+N新建文件后默认的语言
-
-    "code-runner.runInTerminal": true, // 设置成false会在“输出”中输出，无法交互
+    "editor.fontFamily": "Consolas, 'Courier New',‘微软雅黑',monospace", //字体修改
+    "code-runner.runInTerminal": false, // 设置成false会在“输出”中输出，无法交互
     "code-runner.executorMap": {
         "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw32 -std=c11 && $dir$fileNameWithoutExt",
         "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw32 -std=c++17 && $dir$fileNameWithoutExt"
@@ -27,5 +27,38 @@
         "-std=c++17",
         "-Wall"
     ],
-    "clang.completion.enable":false // 效果稍好，但太卡，故关掉
+    "clang.completion.enable":true,   // 效果稍好，但太卡，故关掉
+    "files.autoGuessEncoding": true,
+    "files.encoding": "gbk",
+    "files.associations": {
+        "stdlib.h": "c",
+        "cstdlib": "c",
+        "stdio.h": "c",
+        "cstdio": "c",
+        "*.tcc": "c",
+        "cctype": "c",
+        "clocale": "c",
+        "cstdint": "c",
+        "cwchar": "c",
+        "cwctype": "c",
+        "exception": "c",
+        "initializer_list": "c",
+        "iosfwd": "c",
+        "iostream": "c",
+        "istream": "c",
+        "limits": "c",
+        "new": "c",
+        "ostream": "c",
+        "stdexcept": "c",
+        "streambuf": "c",
+        "string_view": "c",
+        "system_error": "c",
+        "type_traits": "c",
+        "typeinfo": "c",
+        "string.h": "c",
+        "time.h": "c",
+        "conio.h": "c",
+        "cmath": "c"
+    },
+   //"files.defaultLanguage": "Chinese (Simplefied)",
 }

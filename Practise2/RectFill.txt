@@ -1,0 +1,8 @@
+
+//矩形填充问题
+INPUT A,B,X
+IF A,B > 10^9
+RETURN
+ELSE
+OUTPUT (A/X)*(B/X)
+

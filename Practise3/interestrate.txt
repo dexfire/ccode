@@ -1,0 +1,6 @@
+
+//利率计算问题
+START
+INPUT balance,rate,duration
+OUTPUT balance*(1+rate)^duration
+END
