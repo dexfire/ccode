@@ -37,8 +37,10 @@ double calc(double a,double b,int op){
         case MUTIPLY:
             return a * b;
         case DIVIDE:
-            if(b==0)
-                return 999999;
+            if(b==0){
+                // Debug cout << "Zero_Divided - a,b,op="<< a << op2ch(op) << b << endl;
+                return -999999.123456f;
+            }
             return a / b;
     }
     return 0;
@@ -100,7 +102,6 @@ void verify(int src[] ){
                     if(abs(result-24)<1e-10)
                     cout << src[a[i][0]] << op2ch(j) << " [  "<<src[a[i][1]]
                          << op2ch(k)<<" ( " << src[a[i][2]] << op2ch(l) << src[a[i][3]] << " ) ] = " << result << endl;
-
                 }
             }
         }
@@ -135,6 +136,14 @@ int main(){
         for (int i = 0; i < N;i++)
         cin >> arr[i];
         verify(arr);
+        // Debug
+        // cout<<calc(
+        //                             4,
+        //                             calc(
+        //                                 3,
+        //                                 calc(1,1,1),
+        //                             3),
+        //                          3);
     }
 
     system("pause");
