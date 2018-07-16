@@ -32,10 +32,13 @@ void quicksort(int a[],int left,int right);
  		j=right+1;
  		while(1)
  		{
+			 //∑¿÷π‘ΩΩÁ  ◊Û≤‡∑÷¿Î
  			while(i+1<(right+1)&&abs(a[++i])>t);
+			 //∑¿÷π‘ΩΩÁ ”“≤‡∑÷¿Î
  			while(j-1>-1&&abs(a[--j])<t);
  			if(i>=j)
  			break;
+			 // a[i]<=t  a[j]>=t
  			swap(&a[i],&a[j]);
 		 }
 		 a[left]=a[j];
@@ -43,8 +46,35 @@ void quicksort(int a[],int left,int right);
 		 quicksort(a,left,j-1);
 		 quicksort(a,j+1,right);
 	 }
- 	
   } 
+  
+  void quicksort2(int a[],int left,int right)
+ {
+ 	int i,j,t;
+ 	if(left<right)
+ 	{
+ 		t=abs(a[left]);
+ 		i=left;
+ 		j=right+1;
+ 		while(1)
+ 		{
+			 //∑¿÷π‘ΩΩÁ  ◊Û≤‡∑÷¿Î
+ 			while(i+1<(right+1)&&abs(a[++i])<t);
+			 //∑¿÷π‘ΩΩÁ ”“≤‡∑÷¿Î
+ 			while(j-1>-1&&abs(a[--j])>t);
+ 			if(i>=j)
+ 			break;
+			 // a[i]<=t  a[j]>=t
+ 			swap(&a[i],&a[j]);
+		 }
+		 a[left]=a[j];
+		 a[j]=t;
+		 quicksort(a,left,j-1);
+		 quicksort(a,j+1,right);
+	 }
+  } 
+
+
   void swap(int *n,int *m)
   {
   	int s=*n;
@@ -56,10 +86,10 @@ void quicksort(int a[],int left,int right);
 	srand(time(NULL));
 	int arr[100];
 	for (int i = 0; i < 100;i++){
-		cout<<(arr[i] = rand())<<"\t";
+		cout<<(arr[i] = rand()%1000)<<"\t";
 	}
 	cout << endl;
-	quicksort(arr, 0, 99);
+	quicksort2(arr, 0, 99);
 	for (int i = 0; i < 100;i++){
 		cout<<arr[i]<<"\t";
 	}
