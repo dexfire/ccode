@@ -94,7 +94,7 @@ void verify(int src[] ){
                                     src[a[i][0]],
                                     calc(
                                         src[a[i][1]],
-                                        calc(src[a[i][2]],src[a[i][3]],k),
+                                        calc(src[a[i][2]],src[a[i][3]],l),
                                     k),
                                  j);
                     if(abs(result-24)<1e-10)
@@ -125,7 +125,7 @@ int main(){
                     a[idx][2] = k;
                     a[idx++][3] = l;
                     //cout<<"Debug:" <<arr[i]<<"\t"<<arr[j]<<"\t"<<arr[k]<<"\t"<<arr[l]<<endl;
-                    cout<<i<<"\t"<<j<<"\t"<<k<<"\t"<<l<<endl;
+                    // Debug cout<<i<<"\t"<<j<<"\t"<<k<<"\t"<<l<<endl;
                 }
             }
         }
