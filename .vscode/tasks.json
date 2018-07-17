@@ -11,6 +11,7 @@
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
                 "-g",
                 "-Wall",
+                "-working-directory ${fileDirname}",
                 "-static-libgcc",
                 "-fcolor-diagnostics",
                 "--target=x86_64-w64-mingw32",

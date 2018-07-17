@@ -56,7 +56,14 @@
         "time.h": "c",
         "conio.h": "c",
         "cmath": "c",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "array": "cpp",
+        "unordered_map": "cpp",
+        "fstream": "cpp",
+        "optional": "cpp",
+        "vector": "cpp",
+        "sstream": "cpp",
+        "tuple": "cpp"
     },
     //"files.defaultLanguage": "Chinese (Simplefied)",
 }
