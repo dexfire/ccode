@@ -63,7 +63,8 @@
         "optional": "cpp",
         "vector": "cpp",
         "sstream": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "algorithm": "cpp"
     },
     //"files.defaultLanguage": "Chinese (Simplefied)",
 }
