@@ -64,7 +64,12 @@
         "vector": "cpp",
         "sstream": "cpp",
         "tuple": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "deque": "cpp",
+        "memory": "cpp",
+        "utility": "cpp"
     },
     //"files.defaultLanguage": "Chinese (Simplefied)",
 }
