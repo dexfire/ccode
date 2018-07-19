@@ -31,7 +31,7 @@ bool DFS(int v) {
 int main() {
 
     cin >> start_v >> end_v;
-    start_v = start_v - 1; //??????0??
+    start_v = start_v - 1;
     end_v = end_v - 1;
     loadG();
     cout << (DFS(start_v) ? "YES" : "NO") << endl;
