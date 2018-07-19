@@ -71,5 +71,6 @@
         "memory": "cpp",
         "utility": "cpp"
     },
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     //"files.defaultLanguage": "Chinese (Simplefied)",
 }
