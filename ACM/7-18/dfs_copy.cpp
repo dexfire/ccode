@@ -16,23 +16,27 @@ void loadG() {
 bool DFS(int v) {
     if (v == end_v)
         return true;
+    // 无向图
+    // 重复访问会
+    
     if (visited[v])
         return false;
     visited[v] = true;
+
     for (int i = 0; i < n; i++) {
         if (G[v][i] == 1) {
-            bool ret = DFS(i);
-            if (ret == true)
+            if (DFS(i))
                 return true;
         }
     }
     return false;
 }
 int main() {
-
     cin >> start_v >> end_v;
+    // 可读位置 到 数据存储位置变换
     start_v = start_v - 1;
     end_v = end_v - 1;
+    // 输入矩阵
     loadG();
     cout << (DFS(start_v) ? "YES" : "NO") << endl;
     return 0;
