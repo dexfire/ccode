@@ -72,5 +72,6 @@
         "utility": "cpp"
     },
     "workbench.editor.enablePreviewFromQuickOpen": false,
+    "clang.diagnostic.enable": false,
     //"files.defaultLanguage": "Chinese (Simplefied)",
 }

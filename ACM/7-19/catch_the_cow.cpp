@@ -4,11 +4,21 @@
 
 #define log2n(n) ((int)log2f(n))
 
-int minal_normal_steps(int sum) {
-    int a = log2n(sum);
-    while(a<sum){
-        int b = a-1;
-        while(pow(2,b)>sum-1)
+int N, K;
+
+int minmal_normal_steps(int sum) {
+    // 总共要走sum步
+    //
+    int ex = sum;
+    while (ex > 0) {
+    }
+    log2n(sum);
+    int steped +=
+
+        int a = log2n(sum);
+    while (a < sum) {
+        int b = a - 1;
+        while (pow(2, b) > sum - 1)
             b--;
         a += b;
     }
@@ -23,6 +33,12 @@ int minal_normal_steps(int sum) {
 }
 
 int main() {
+    int steps;
+    while (scanf("%d%d", &N, &K) != EOF) {
+        steps = log2n(K / N);
+        steps += minmal_normal_steps(K - N * pow(2, steps));
+    }
+
     printf("%d  %d\n", minal_normal_steps(64), log2n(100));
     system("pause");
 }
