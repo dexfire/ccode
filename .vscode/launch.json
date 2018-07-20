@@ -2,19 +2,17 @@
 {
     "version": "0.2.0",
     "configurations": [
-
         {
-            "name": "Launch",
             "type": "lldb",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "stdio": null,
-            "terminal": "console",
-            "env":{
-                "PATH":"${env:PATH}",
-            },
+            "request": "custom",
+            "name": "(lldb) launch",
+            "targetCreateCommands": [
+                "target create ${workspaceFolder}/${fileBasenameNoExtension}.exe"
+            ],
+            "processCreateCommands": [
+                "settings set target.run-args",
+                "process launch"
+            ]
         },
         { 
             "name": "(gdb) Attach",
@@ -23,7 +21,7 @@
             "program": "enter program name, for example ${workspaceFolder}/a.exe",
             "processId": "${command:pickProcess}",
             "MIMode": "gdb",
-            "miDebuggerPath": "/path/to/gdb",
+            "miDebuggerPath": "gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
