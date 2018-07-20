@@ -28,6 +28,7 @@ int main() {
             for (int j = 0; j < p; j++) {
                 scanf("%d", &RP[idx++]);
             }
+            // getch() 干掉那个换行
             _getch();
             char ch = _getch();
             // scanf("%c", &ch);
@@ -44,6 +45,7 @@ int main() {
                 break;
             }
         }
+        // 输出序列
         bool flag = false;
         for (int i = 1; i < N + 1; i++) {
             if (COINS[i] != 0) {
@@ -51,6 +53,7 @@ int main() {
                 flag = true;
             }
         }
+        // 没有结果输出0
         if (!flag)
             printf("0\n");
     }

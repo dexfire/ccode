@@ -1,35 +1,19 @@
-#include <cmath>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cmath>
 
 #define log2n(n) ((int)log2f(n))
 
 int N, K;
 
 int minmal_normal_steps(int sum) {
-    // 总共要走sum步
-    //
-    int ex = sum;
-    while (ex > 0) {
+    int steped = 0;
+    int steps = 0;
+    while (steped < sum) {
+        steps++;
+        steped += log2n(sum - steped);
     }
-    log2n(sum);
-    int steped +=
-
-        int a = log2n(sum);
-    while (a < sum) {
-        int b = a - 1;
-        while (pow(2, b) > sum - 1)
-            b--;
-        a += b;
-    }
-    int lenth = 1;
-    int steps = 1;
-    int steps_count = 1;
-    while (lenth < sum) {
-        lenth += (steps *= 2);
-        steps_count++;
-    }
-    return steps_count;
+    return steps;
 }
 
 int main() {
