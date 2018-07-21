@@ -69,7 +69,12 @@
         "ctime": "cpp",
         "deque": "cpp",
         "memory": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp"
     },
     "workbench.editor.enablePreviewFromQuickOpen": false,
     
