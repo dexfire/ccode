@@ -1,10 +1,26 @@
 #include <cstdio>
+#include <windows.h>
+
 #define maxn 100005
 int n, k;
 int arr[maxn];
 int temp[maxn]; //单线程 可以拿来共享
 int count;
-void merge(int arr[], int st, int mid, int ed) {
+
+void EchoWithColor(char *str, int color = FOREGROUND_RED | FOREGROUND_GREEN |
+                                          FOREGROUND_BLUE) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+                            FOREGROUND_INTENSITY | color);
+    printf(str);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+                            FOREGROUND_INTENSITY | FOREGROUND_RED |
+                                FOREGROUND_GREEN | FOREGROUND_BLUE);
+}
+
+void merge(int arr[], int st, int mid, int ed, int stack) {
+    for (int i = 0; i < stack; i++)
+        EchoWithColor("  ", stack);
+    printf("%d merge -> st:%d,mid:%d,ed:%d\n", stack, st + 1, mid + 1, ed + 1);
     int i = st, j = mid + 1, p = 0;
     while (i <= mid && j <= ed) {
         if (arr[i] < arr[j]) { //正序排序
@@ -48,16 +64,25 @@ void merge(int arr[], int st, int mid, int ed) {
 // 	为什么可以用归并排序求逆序数？？
 //			逆序数可以用 对换 来考虑，产生一次对换，逆序数+1
 
-void merge_sort(int arr[], int st, int ed) {
+// 函数解读
+// 看第一个merge_sort() 如果把调用堆栈信息打印出来的话会发现，
+// 最初一段时间都用来对st -> ed这段进行切割了
+void merge_sort(int arr[], int st, int ed, int stack) {
+    for (int i = 0; i < stack; i++)
+        EchoWithColor("  ", stack);
+    printf("%d merge_sort -> st:%d,ed:%d\n", stack, st + 1, ed + 1);
     if (ed <= st)
         return;
     int mid = (st + ed) / 2;
-    merge_sort(arr, st, mid);
-    merge_sort(arr, mid + 1, ed);
-    merge(arr, st, mid, ed);
+
+    merge_sort(arr, st, mid, stack + 1);
+    merge_sort(arr, mid + 1, ed, stack + 1);
+    merge(arr, st, mid, ed, stack + 1);
 }
 
 int main() {
+
+    freopen("test.txt", "r", stdin);
     while (~scanf("%d%d", &n, &k)) {
         if (n == 0)
             return 0;
@@ -65,8 +90,9 @@ int main() {
             scanf("%d", arr + i);
         }
         count = 0;
-        merge_sort(arr, 0, n - 1);
+        merge_sort(arr, 0, n - 1, 0);
         printf("%d\n", count - k > 0 ? count - k : 0);
     }
+    fclose(stdin);
     return 0;
 }

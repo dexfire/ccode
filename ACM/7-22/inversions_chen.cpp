@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 int n, k, t = 0;
-int a[105], b[105];
+int a[100005], b[100005];
 void merge(int a[], int s, int m, int e, int tmp[]) {
     int pb = 0;
     int p1 = s, p2 = m + 1;
