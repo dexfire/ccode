@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <tr1/cstdarg>
 #include <windows.h>
 
 #define maxn 100005
@@ -7,11 +8,17 @@ int arr[maxn];
 int temp[maxn]; //单线程 可以拿来共享
 int count;
 
-void EchoWithColor(char *str, int color = FOREGROUND_RED | FOREGROUND_GREEN |
-                                          FOREGROUND_BLUE) {
+void EchoWithColor(char *str,
+                   int color = FOREGROUND_RED | FOREGROUND_GREEN |
+                               FOREGROUND_BLUE,
+                   ...) {
+
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
                             FOREGROUND_INTENSITY | color);
-    printf(str);
+    va_list v;
+    va_start(v, color);
+    vprintf(str, v);
+    va_end(v);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
                             FOREGROUND_INTENSITY | FOREGROUND_RED |
                                 FOREGROUND_GREEN | FOREGROUND_BLUE);
@@ -19,8 +26,9 @@ void EchoWithColor(char *str, int color = FOREGROUND_RED | FOREGROUND_GREEN |
 
 void merge(int arr[], int st, int mid, int ed, int stack) {
     for (int i = 0; i < stack; i++)
-        EchoWithColor("  ", stack);
-    printf("%d merge -> st:%d,mid:%d,ed:%d\n", stack, st + 1, mid + 1, ed + 1);
+        EchoWithColor("  ");
+    EchoWithColor("%d merge -> st:%d,mid:%d,ed:%d\n", stack, stack, st + 1,
+                  mid + 1, ed + 1);
     int i = st, j = mid + 1, p = 0;
     while (i <= mid && j <= ed) {
         if (arr[i] < arr[j]) { //正序排序
@@ -69,8 +77,9 @@ void merge(int arr[], int st, int mid, int ed, int stack) {
 // 最初一段时间都用来对st -> ed这段进行切割了
 void merge_sort(int arr[], int st, int ed, int stack) {
     for (int i = 0; i < stack; i++)
-        EchoWithColor("  ", stack);
-    printf("%d merge_sort -> st:%d,ed:%d\n", stack, st + 1, ed + 1);
+        printf("  ");
+    EchoWithColor("%d merge_sort -> st:%d,ed:%d\n", stack, stack, st + 1,
+                  ed + 1);
     if (ed <= st)
         return;
     int mid = (st + ed) / 2;
@@ -82,7 +91,7 @@ void merge_sort(int arr[], int st, int ed, int stack) {
 
 int main() {
 
-    freopen("test.txt", "r", stdin);
+    freopen("inversion.txt", "r", stdin);
     while (~scanf("%d%d", &n, &k)) {
         if (n == 0)
             return 0;
