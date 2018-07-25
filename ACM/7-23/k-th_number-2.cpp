@@ -4,13 +4,12 @@
 #include <queue>
 using namespace std;
 int main() {
-
     int n, t, x;
     string s;
     while (scanf("%d%d", &n, &t)) {
         priority_queue<int> a;
         for (int i = 0; i < n; i++) {
-            s = cin.get();
+            cin>>s;
             if (s == "I") {
                 scanf("%d", &x);
                 a.push(x);
