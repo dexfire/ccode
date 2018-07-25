@@ -13,7 +13,7 @@ struct node q[MAXN];
 int bfs() {
     node now, next;
     int head, tail;
-
+    scanf("%d%d", &n, &k);
     q[0].x = n;
     q[0].step = 0;
     head = 0;
