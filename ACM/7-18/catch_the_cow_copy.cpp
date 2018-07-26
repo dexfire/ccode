@@ -14,9 +14,9 @@ int bfs() {
     node now, next;
     int head, tail;
     scanf("%d%d", &n, &k);
+    head = 0;
     q[0].x = n;
     q[0].step = 0;
-    head = 0;
     tail = 1;
     visited[n] = true;
 
