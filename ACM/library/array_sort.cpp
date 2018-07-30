@@ -17,6 +17,7 @@ template <class T> void buble_sort(T arr[], int st, int ed) {
     }
 }
 
+// µİ¹éË¼Ïë ¹é²¢ÅÅĞò
 template <class T> void merge(T arr[], int st, int mid, int ed, T tmp[]) {
     int i = st, j = mid + 1, p = 0;
     while (i <= mid && j <= ed) {
